@@ -2,9 +2,7 @@ package top.anorak01;
 
 import java.io.File;
 import java.math.BigInteger;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -14,18 +12,14 @@ import java.io.*;
 import java.util.Properties;
 
 public class Main {
-    public static Map<String, String> modlist_w_checksums = new HashMap<String, String>();
+    public static Map<String, String> modlist_w_checksums = new HashMap<>();
     public static void main(String[] args) {
         System.out.println("Processing!");
 
         File folder = new File(".");
 
-        String jarPath = Main.class
-                .getProtectionDomain()
-                .getCodeSource()
-                .getLocation()
-                .getPath();
-        String jarFileName = Paths.get(jarPath).getFileName().toString();
+        File jarFile = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().getFile());
+        String jarFileName = jarFile.getName();
         for (File mod : Objects.requireNonNull(folder.listFiles())) {
 
             if (mod.isFile() && !mod.getName().equals(jarFileName) && !mod.getName().equals("modlist.txt")) {
