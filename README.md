@@ -1,4 +1,4 @@
-A small utility to generate modlist.txt file for ModCheck Fabric mod.
+A small utility to generate modlist.txt file for [ModCheck](https://github.com/Anorak01/ModCheck) Fabric mod.
 
 It is really crude right now, but it works good enough.
 
